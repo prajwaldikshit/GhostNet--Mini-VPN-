@@ -581,7 +581,7 @@
             }
         });
 
-        // Load initial status
+        // Load initial status and add debugging
         fetch('/api/status')
             .then(response => response.json())
             .then(data => {
@@ -590,10 +590,27 @@
                 }
                 updateConnectionStatus(data.connected, data.server_ip);
                 addLog('Initial status loaded', 'info');
+                addLog(`VPN Server is running on 127.0.0.1:8000`, 'info');
+                addLog(`Click "Connect to VPN" to establish encrypted tunnel`, 'info');
             })
             .catch(error => {
                 addLog(`Failed to load status: ${error.message}`, 'error');
             });
+            
+        // Add auto-refresh of status every 5 seconds
+        setInterval(() => {
+            fetch('/api/status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.original_ip) {
+                        originalIpEl.textContent = data.original_ip;
+                    }
+                    updateConnectionStatus(data.connected, data.server_ip);
+                })
+                .catch(error => {
+                    console.log('Status refresh error:', error);
+                });
+        }, 5000);
     </script>
 </body>
 </html>
