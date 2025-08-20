@@ -22,6 +22,10 @@ args = "VPN Server"
 task = "workflow.run"
 args = "vpn_demo"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Web Frontend"
+
 [[workflows.workflow]]
 name = "VPN Server"
 author = "agent"
@@ -41,6 +45,22 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python vpn_server.py"
+
+[[workflows.workflow]]
+name = "Web Frontend"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python web_app.py"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
 
 [[ports]]
 localPort = 8000
