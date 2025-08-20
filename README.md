@@ -179,3 +179,7 @@ ________________________________________
 •	Systems Programming: Threading, process management, logging
 •	Security: VPN protocols, traffic analysis, IP masking
 Disclaimer: This is an educational demonstration. Do not use for actual privacy protection or in production environments.
+
+_______________________________________
+
+This project was personally developed by Prajwal Dikshit and Vibudhan Dubey as part of our MCA learning journey.
