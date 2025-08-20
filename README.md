@@ -1,3 +1,6 @@
+---
+GhostNet--Mini-VPN
+---
 Mini VPN - Python Socket-based VPN with AES Encryption
 A demonstration Virtual Private Network (VPN) implementation built with Python that showcases network programming, cryptography, and traffic forwarding concepts. This project features a complete VPN system with both command-line and web interfaces, demonstrating core VPN functionality including AES-256 encryption and IP masking.
 ________________________________________
